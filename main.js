@@ -2,10 +2,10 @@
 // - créer une fonction qui va renvoyer via un console.log "bonjour"
 // - appelle la fonction
 
-// function bonjour() {
-//     return console.log("Bonjour")
+// function bonjour(text) {
+//     return console.log(text)
 // }
-// bonjour();
+// bonjour("Bonjour");
 
 // ### Exercice 2
 // - créer une fonction qui va faire le calcule " 5 + 5 " et va retourner le résultat de ce calcul via un console.log
@@ -21,9 +21,9 @@
 // - appelle la fonction
 
 // function name(prenom) {
-//     return console.log(`Bonjour ${prenom}`)
+//     return (`Bonjour ` + prenom)
 // }
-// name("Charles");
+// console.log(name("Charles"));
 
 // ### Exercice 4 
 // - créer une fonction qui prendre trois parametres. 
@@ -31,10 +31,7 @@
 // - appelle la fonction
 
 // function type(element1, element2, element3) {
-//     element1 = typeof element1
-//     element2 = typeof element2
-//     element3 = typeof element3
-//     return console.log(element1, element2, element3)
+//     return console.log(typeof element1, typeof element2, typeof element3);
 // }
 // type(17,"charle",true);
 
@@ -47,6 +44,10 @@
 // - Si le joueur est à 1 unités = "Burlant".
 // - Si le joueur échoue à trouver le nombre au bout de 5essaies, la fonction indique que la partie est terminée.
 // - Si le joueur trouve la bonne réponse, la boucle s'arrette et la fonction indique que le joueur a gagné
+
+
+
+
 
 // function hasard() {
 
@@ -71,7 +72,7 @@
 //             alert(`Tiède, encore! Il te reste ${index} chance`);
 //         } else if (diff > 5) {
 //             index--;
-//             alert(`Froid, encore! Il te reste ${index} chance`);
+//             alert(`Froid, encore! Il te reste ${index} chance.`);
 //         }
 //     }
 //     if (reponse == aleatoire) {
@@ -90,28 +91,28 @@
 //   - retourne le carré des integers.
 //   - retourne le contraire du boolean.
 
-let tableau = ["charLes", 22, true];
+// let tableau = ["charLes", 22, true];
 
-function mix(tab) {
-    tab.forEach((element, index) => {
-        switch (typeof element) {
-        case "string":
-            return tab[index] = element.charAt(0).toUpperCase() + element.slice(1).toLowerCase();
-        case "number":
-            return tab[index] = Math.pow(element,2);
-        case "boolean":
-            if (element == true) {
-                tab[index] = false;
-            } else {
-                tab[index] = true;
-            }
-        default:
-            break;
-    }
-    });
-};
-mix(tableau);
-console.log(tableau);
+// function mix(tab) {
+//     tab.forEach((element, index) => {
+//         switch (typeof element) {
+//         case "string":
+//             return tab[index] = element.charAt(0).toUpperCase() + element.slice(1).toLowerCase(); //substr fonctionne aussi ! pour slice
+//         case "number":
+//             return tab[index] = Math.pow(element,2);
+//         case "boolean":
+//             if (element == true) {
+//                 tab[index] = false;
+//             } else {
+//                 tab[index] = true;
+//             }
+//         default:
+//             break;
+//     }
+//     });
+// };
+// mix(tableau);
+// console.log(tableau);
 
 
 
@@ -149,29 +150,29 @@ console.log(tableau);
 // - Si NON, elle ne rentre pas. 
 // - Affichez via une console.log, toutes les personnes présentes au concert avec leur 1er lettre de leurs prénom en majuscule. 
 
-// let tableau = [];
+let tableau = [];
+let prenom;
+let age;
+let add;
 
-// function concert(prenom, age) {
-//     if (age >= 18) {
-//         tableau.push(prenom.charAt(0).toUpperCase())
-//     } else {
-//         alert(`sorry ${prenom}, but you're to young.`)
-//     }
-//     if (tableau.length > 7) {
-//         alert(`la sale est pleine ${prenom}, merci de bien vouloir degager.`);
-//         tableau.splice(prenom,1)
-//     }
-// }
-
-// concert("cHarles", 19);
-// concert("Edouard", 19);
-// concert("maurice", 19);
-// concert("hugue", 19);
-// concert("Raplh", 19);
-// concert("Diego", 19);
-// concert("Herman", 19);
-// concert("gustave", 19);
-// concert("nelson", 19);
-
-// console.log(tableau);
+function concert(prenom, age) {
+    add = confirm("tu veux entrer?")
+    while (add != false) {
+        prenom = prompt("nom");
+        age = prompt("age");
+        if (age >= 18) {
+        tableau.push(prenom.charAt(0).toUpperCase()+prenom.substr(1).toLowerCase())
+        } else {
+        alert(`sorry ${prenom}, but you're to young.`)
+        }
+        if (tableau.length > 7) {
+        alert(`la sale est pleine ${prenom}, merci de bien vouloir degager.`);
+        tableau.splice(prenom,1)
+        }
+        add = confirm("tu veux entrer?")
+    }
+    
+}
+concert();
+console.log(tableau);
 
